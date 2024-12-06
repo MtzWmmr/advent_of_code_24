@@ -2009,62 +2009,6 @@ pris_input = """39472   15292
 
 
 
-print(pris_input)
-def day_one_part_one(input):
-    list_1 = []
-    list_2 = []
-
-    for pair in input.split("\n"):
-        pair_split = pair.split("   ")
-        list_1.append(pair_split[0])
-        list_2.append(pair_split[1])
-
-    distance_sum = 0
-    list_1.sort()
-    list_2.sort()
-
-    for i in range(len(list_1)):
-        distance_sum += abs(int(list_1[i]) - int(list_2[i]))
-    return distance_sum
-
-def day_one_part_two(input):
-    list_1 = []
-    list_2 = {}
-
-    for pair in input.split("\n"):
-        pair_split = pair.split("   ")
-        list_1.append(int(pair_split[0])) 
-        if not int(pair_split[1]) in list_2:
-            list_2[int(pair_split[1])] = 1
-        else: 
-            list_2[int(pair_split[1])] = list_2[int(pair_split[1])] + 1
 
 
-    similarity_score = 0
-    for entry in list_1:
-        if entry in list_2:
-            similarity_score += entry * list_2[entry]
-
-    return similarity_score
-
-def day_one_part_two_with_count(input):
-    list_1 = []
-    list_2 = []
-
-    for pair in input.split("\n"):
-        pair_split = pair.split("   ")
-        list_1.append(int(pair_split[0]))
-        list_2.append(int(pair_split[1]))
-
-    similarity_score = 0
-    for entry in list_1:
-        similarity_score += entry * list_2.count(entry)
-
-    return similarity_score
-
-
-
-print(day_one_part_one(pris_input))
-print(day_one_part_two(input))
-print(day_one_part_two_with_count(input))
 
